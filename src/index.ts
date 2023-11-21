@@ -50,3 +50,7 @@ printaObjectos({
         preco: 89.99,
         unidades: 5,
     };
+
+//arrays
+    let dados: string [] = ["bruno", "thainá", "leticia"];
+    let dados2: Array<string> = ["bruno", "thainá", "leticia"];
