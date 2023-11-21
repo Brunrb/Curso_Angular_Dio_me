@@ -54,3 +54,16 @@ printaObjectos({
 //arrays
     let dados: string [] = ["bruno", "thainá", "leticia"];
     let dados2: Array<string> = ["bruno", "thainá", "leticia"];
+
+//arrays de multi types (Não recomendada)
+// --> "Uma array que posso colocar mais de um tipo de dados, e não preciso seguir a ordem pre-estabelecida!"
+    let infos: (string | number)[] = ["bruno", 1929];
+
+//tuplas (Recomendada)
+// --> "Parecido com Array Multi Types, porém eu devo seguir a ordem dos tipos!"
+    let boleto: [string, number, number] = ["conta de água", 126.30, 38000344747430000003747];
+
+//pequena informação referente a: Metodos de Arrays
+// --> "Todos os métodos que usamos no JavaScritp podem ser utilizados no TypeScript"
+// ----> Exemplos: Map, Filter, Pop, Reduce, etc...
+
