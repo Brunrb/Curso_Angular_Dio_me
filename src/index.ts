@@ -103,3 +103,42 @@ printaObjectos({
     }
 
     
+//interfaces (type x interface)
+    type robot = {
+        id: number;
+        name: string;
+    };
+
+    interface robot2{
+        id: number,
+        name: string,
+    }; // --> Utilizado mais com Class, como um contrato.
+
+    const bot: robot = {
+        id: 1,
+        name: "megaman",
+    }; // --> Se colocar robot2 também irá funcionar perfeitamente.
+
+    type robot_ult = {
+        readonly id: number | string;
+        name: string;
+    }
+
+    const bot_ult: robot_ult = {
+        id: 1,
+        name: "robocop",
+    };
+    
+    interface robot_ult2{
+        readonly id: number | string;
+        name: string;
+    }
+
+    const bot_ult2: robot_ult2 = {
+        id: 2,
+        name: "ultraman",
+    };
+
+    console.log(bot);
+    console.log(bot_ult);
+    console.log(bot_ult2);
