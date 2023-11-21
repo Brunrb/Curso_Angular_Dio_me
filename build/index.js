@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function printaObjectos(pessoa) {
     console.log(pessoa);
 }
@@ -30,3 +31,13 @@ let dados = ["bruno", "thainá", "leticia"];
 let dados2 = ["bruno", "thainá", "leticia"];
 let infos = ["bruno", 1929];
 let boleto = ["conta de água", 126.30, 38000344747430000003747];
+let aniversario = new Date("1996-11-10 19:21");
+console.log(aniversario.toString());
+function addNumber(x, y) {
+    return x + y;
+}
+function addHello(name) {
+    return `Hello ${name}, this is your number: `;
+}
+let soma = addNumber(8, 15);
+console.log(addHello("Bruno") + soma);

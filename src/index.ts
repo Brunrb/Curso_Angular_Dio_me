@@ -1,3 +1,6 @@
+import { NodeRuntime } from "inspector";
+import { PlatformPath } from "path";
+
 type heroi = {
     name: string;
     vulgo: string;
@@ -67,3 +70,36 @@ printaObjectos({
 // --> "Todos os métodos que usamos no JavaScritp podem ser utilizados no TypeScript"
 // ----> Exemplos: Map, Filter, Pop, Reduce, etc...
 
+//datas
+    let aniversario: Date = new Date("1996-11-10 19:21");
+    console.log(aniversario.toString());
+
+//funções
+    function addNumber(x: number, y: number): number{
+        return x + y;
+    }
+
+    function addHello(name: string): string{
+        return `Hello ${name}, this is your number: `;
+    }
+
+    let soma: number = addNumber(8,15);
+
+    console.log(addHello("Bruno")+soma);
+
+// --> função com multi tipos
+    function CallToPhone(phone: number | string): number | string{
+        return phone;
+    }
+
+    console.log(CallToPhone(11973482663)); //ou --> (CallToPhone("11 97348-2663"));
+        //náo dará erro, porque ele aceita mais de um tipo, de acordo com o que foi declarado.
+        //porém se for colocado qualquer tipo que não seja o declarado, dará erro!
+
+// --> função Async
+    async function getDataBase(id: number): Promise<string> {
+        return "Bruno"; // --> Aqui ele retorna uma string, em um contexto real ele devolve os
+                            // dados da id requerida na função.
+    }
+
+    
