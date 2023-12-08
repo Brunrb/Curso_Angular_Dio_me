@@ -1,52 +1,60 @@
-type heroi = {
-    name: string;
-    vulgo: string;
-};
+//decorators
 
-function printaObjectos(pessoa: heroi){
-    console.log(pessoa);
+// function ExibirNome(target: any){
+//     console.log(target);
+// }
+
+// @ExibirNome
+// class Funcionario{}
+
+// @ExibirNome
+// class Quincas{}
+
+// //class decorators
+
+// function apiVersion(version: string){
+//     return (target: any) => {
+//         Object.assign(target.prototype, {__version: version});
+//     };
+// }
+
+// @apiVersion("1.10")
+// class Api{}
+
+// const api = new Api();
+// console.log(api.__version);
+
+//atribute decorator
+function minLegth(length: number){
+    return (target: any, key: string) => {
+        let _value = target[key];
+
+        const getter = () => "[exibir:]" + _value;
+        const setter = (value: string) => {
+            if(value.length < length){
+                throw new Error(`Tamanho menor do que ${length}`);
+            }else{
+                _value = value;
+            }
+        };
+
+        Object.defineProperty(target, key, {
+            get: getter,
+            set: setter,
+        });
+    };
 }
 
-//isso printa um objeto!
-printaObjectos({
-    name: "Bruno Rafael",
-    vulgo: "Dev",
-});
+class Api{
+    @minLegth(10)
+    name: string;
 
-// console.log("Hello Word!");
+    constructor(name: string){
+        this.name = name;
+    }
+}
 
-//tipos primitivos: boolean, number, string
-    let ligado:boolean = false;
-    let nome: string = "Bruno";
-    let idade: number = 30;
-    let altura: number = 1.9;
+const api = new Api("produtos comprados");
+console.log(api.name);
 
-//tipos especiais: null, undefined 
-    let nulo: null = null;
-    let indefinido: undefined = undefined;
-
-//tipos abrangentes: any, void
-    let retorno: void;
-    function selectQuery():void{}; //Comumente usado em funções!
-
-    let retornoView: any = false; //Retorna qualquer coisa!
-
-//objeto - sem previsibilidade
-    let produto: object = {
-        name: "bruno",
-        cidade: "sp",
-        idade: "27",
-    };
-
-//objeto - com previsibilidade
-    type ProdutoLoja = {
-        nome: string;
-        preco: number;
-        unidades: number;
-    };
-
-    let meuProduto: ProdutoLoja = {
-        nome: "Tênis",
-        preco: 89.99,
-        unidades: 5,
-    };
+// Atualizado
