@@ -56,3 +56,5 @@ class Api{
 
 const api = new Api("produtos comprados");
 console.log(api.name);
+
+// Atualizado
