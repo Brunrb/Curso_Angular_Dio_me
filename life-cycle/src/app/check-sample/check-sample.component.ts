@@ -1,36 +1,53 @@
-import { Component, OnInit, DoCheck, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-check-sample',
   templateUrl: './check-sample.component.html',
   styleUrls: ['./check-sample.component.css']
 })
-export class CheckSampleComponent implements OnInit, DoCheck, AfterContentChecked,
-            AfterContentInit, AfterViewChecked, AfterViewInit {
+export class CheckSampleComponent implements OnInit, AfterContentChecked,
+                                            AfterContentInit, AfterViewChecked,
+                                            AfterViewInit, OnDestroy {
+
+  quantidade:number = 0;
 
   constructor() { }
 
-  ngDoCheck(): void {
-    console.log("ngCheck");
+  adicionar(){
+    this.quantidade += 1;
   }
 
-  ngAfterContentChecked(): void {
-    console.log("ngAfterContentChecked");
+  decrementar(){
+    this.quantidade -= 1;
   }
 
+  //checked --> content --> view
+
+  //quanto o primeiro conteudo é iniciado
   ngAfterContentInit(): void {
     console.log("ngAfterContentInit");
   }
 
-  ngAfterViewChecked(): void {
-    console.log("ngAfterViewChecked");
-  }
-
+  //depois da inicialização da view
   ngAfterViewInit(): void {
     console.log("ngAfterViewInit");
   }
 
+  //após alguma alteração, verifica o conteudo
+  ngAfterContentChecked(): void {
+      console.log("ngAfterContentChecked");
+  }
+
+  //após alguma alteração, verifica a view
+  ngAfterViewChecked(): void {
+      console.log("ngAfterViewChecked");
+  }
+
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    console.log("goodbye my friend");
   }
 
 }
