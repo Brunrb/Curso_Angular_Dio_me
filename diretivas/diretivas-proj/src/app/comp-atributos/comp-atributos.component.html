@@ -4,6 +4,8 @@
 <h1 [ngStyle]="{'background':corFundo, 'color':corFonte}">Curso Angular!</h1>
 <hr>
 
+<ng-content select="h2"></ng-content>
+
 <h1>Lista de compras</h1>
 <p>Adicione um item</p>
 <input type="text" [(ngModel)]="item">
@@ -15,3 +17,11 @@
 </ul>
 
 <hr>
+
+<ng-template [ngIf]=isEnableBlock>
+  <a href="">FINALIZAR COMPRA</a>
+</ng-template>
+
+<ng-template>
+  <a href="">ADICIONAR AO CARRINHO</a>
+</ng-template>
