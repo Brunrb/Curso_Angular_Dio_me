@@ -43,19 +43,16 @@
 //     console.log(digitos);
 // }
 
-let C = parseInt(4);
+let C = parseInt([100,100]);
 
 for (let i = 0; i < C; i++) {
-    var input = 4;
+    var input = [100,100];
     let N = parseInt(input[0]);
     let M = parseInt(input[1]);
 
     // Calcular a potência N^M
-    let resultado = Math.pow(N, M);
-
-    // Contar o número de dígitos do resultado convertendo para string
-    let digitos = resultado.toString().length;
+    let digitos = parseInt(Math.log10(Math.pow(N, M))+1);
 
     // Imprimir a quantidade de dígitos
-    console.log(N.toString().length);
+    console.log(digitos);
 }
